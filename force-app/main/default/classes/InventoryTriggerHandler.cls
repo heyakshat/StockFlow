@@ -1,5 +1,5 @@
 public with sharing class InventoryTriggerHandler {
- 
+
     public static void handleAfterUpdate(List<Inventory__c> newItems, Map<Id, Inventory__c> oldMap) {
         List<Purchase_Order__c> poList = new List<Purchase_Order__c>();
 
@@ -12,6 +12,7 @@ public with sharing class InventoryTriggerHandler {
                 ));
             }
         }
+
         if (!poList.isEmpty()) {
             insert poList;
         }
