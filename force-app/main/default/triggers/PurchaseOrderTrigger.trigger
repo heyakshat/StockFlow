@@ -1,3 +1,4 @@
-trigger PurchaseOrderTrigger on SOBJECT (before insert) {
+trigger PurchaseOrderTrigger on SOBJECT (before insert) 
+{
 
 }
