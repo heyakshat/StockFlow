@@ -3,7 +3,7 @@ public with sharing class DuplicatePreventionHandler {
         Set<String> existingKeys = new Set<String>();
         
         for (Inventory__c inv : newItems) {
-            String uniqueKey = inv.Product__c + '' + inv.Warehouse__c;
+            String uniqueKey = inv.Products__c + '' + inv.Warehouses__c;
             
             if (existingKeys.contains(uniqueKey)) {
                 inv.addError('Duplicate Entry: This product is already registered in this warehouse.');
