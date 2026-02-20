@@ -7,5 +7,6 @@
   },
   "xml.preferences.showSchemaDocumentationType": "none",
   "editor.mouseWheelZoom": true,
-  "salesforcedx-vscode-apex.java.home": "E:\\JDK"
+  "salesforcedx-vscode-apex.java.home": "E:\\JDK",
+  "salesforcedx-vscode-core.show-cli-success-msg": false
 }
