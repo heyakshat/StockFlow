@@ -7,7 +7,7 @@ public with sharing class InventoryTriggerHandler {
             if (inv.Current_Stock__c <= inv.Reorder_Level__c) {
 
                 poList.add(new Purchase_Order__c(
-                    Supplier__c = defaultSupplier.Id, 
+                    Supplier_Name__c = defaultSupplier.Id, 
                     Quantity__c = 100,                   
                     Inventory_Link__c = inv.Id,          
                     Status__c = 'Draft'
