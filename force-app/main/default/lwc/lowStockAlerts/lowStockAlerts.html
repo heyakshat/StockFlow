@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Stock Movement Alerts" icon-name="utility:alert">
+        <div class="slds-p-around_medium">
+            <template lwc:if={items.length}>
+                <div style="height: 300px;">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={items}
+                        columns={columns}
+                        hide-checkbox-column="true">
+                    </lightning-datatable>
+                </div>
+            </template>
+            
+            <template lwc:else>
+                <div class="slds-align_absolute-center slds-text-color_success">
+                    <lightning-icon icon-name="utility:check" size="small" variant="success" class="slds-m-right_x-small"></lightning-icon>
+                    <strong>All stock levels are currently healthy.</strong>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
