@@ -1,6 +1,7 @@
 public with sharing class InventoryController {
     @AuraEnabled(cacheable=true)
-    public static List<Inventory__c> getAllInventory() {
+    public static List<Inventory__c> getAllInventory() 
+    {
         try {
             return [
                 SELECT Id, 
@@ -15,4 +16,12 @@ public with sharing class InventoryController {
             throw new AuraHandledException('Error fetching inventory: ' + e.getMessage());
         }
     }
+    @AuraEnabled(cacheable=true)
+    public static List<Task> getStockHistory(Id inventoryId) {
+    return [SELECT Id, Subject, Description, CreatedDate 
+            FROM Task 
+            WHERE WhatId = :inventoryId 
+            ORDER BY CreatedDate DESC 
+            LIMIT 5];
+}
 }
