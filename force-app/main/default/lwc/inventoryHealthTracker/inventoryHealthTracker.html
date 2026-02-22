@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Stock Health Monitor" icon-name="standard:inventory_item">
+        <div class="slds-p-around_medium">
+            <div class="slds-m-bottom_small">
+                <lightning-badge label={healthStatus} class={badgeClass}></lightning-badge>
+            </div>
+
+            <div class="slds-m-bottom_medium">
+                <div class="slds-grid slds-grid_align-spread">
+                    <span>Storage Utilization</span>
+                    <span>{utilization}%</span>
+                </div>
+                <lightning-progress-bar value={utilization} size="large" variant={barVariant}>
+                </lightning-progress-bar>
+            </div>
+
+            <div class="slds-grid slds-gutters slds-text-align_center slds-border_top slds-p-top_small">
+                <div class="slds-col">
+                    <p class="slds-text-title">Available</p>
+                    <p class="slds-text-heading_small">{currentStock}</p>
+                </div>
+                <div class="slds-col">
+                    <p class="slds-text-title">Reorder At</p>
+                    <p class="slds-text-heading_small">{reorderLevel}</p>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
