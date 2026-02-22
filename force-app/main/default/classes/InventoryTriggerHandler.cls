@@ -1,4 +1,5 @@
-public with sharing class InventoryTriggerHandler {
+public with sharing class InventoryTriggerHandler 
+{
     public static void handleAfterUpdate(List<Inventory__c> newItems, Map<Id, Inventory__c> oldMap) {
         List<Purchase_Order__c> poList = new List<Purchase_Order__c>();
         Account defaultSupplier = [SELECT Id FROM Account WHERE Name = 'Global Tech Parts' LIMIT 1];
