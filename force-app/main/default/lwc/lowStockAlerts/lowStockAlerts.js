@@ -1,4 +1,4 @@
-import { LightningElement, wire, track } from 'lwc';
+/*import { LightningElement, wire, track } from 'lwc';
 import getLowStockItems from '@salesforce/apex/InventoryController.getLowStockItems';
 
 const COLUMNS = [
@@ -31,4 +31,4 @@ export default class LowStockAlerts extends LightningElement {
             console.error('Error fetching inventory:', error);
         }
     }
-}
+}*/
