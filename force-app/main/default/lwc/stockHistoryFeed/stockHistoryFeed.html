@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Recent Stock Movements" icon-name="standard:log_a_call">
+        <div class="slds-p-around_medium">
+            <template lwc:if={history.data}>
+                <ul class="slds-has-dividers_around-space">
+                    <template for:each={history.data} for:item="move">
+                        <li key={move.Id} class="slds-item">
+                            <lightning-tile label={move.Subject} type="media">
+                                <lightning-icon slot="media" icon-name="standard:event"></lightning-icon>
+                                <p class="slds-truncate" title={move.Description}>{move.Description}</p>
+                                <p class="slds-text-color_weak">
+                                    <lightning-formatted-date-time value={move.CreatedDate} hour="2-digit" minute="2-digit"></lightning-formatted-date-time>
+                                </p>
+                            </lightning-tile>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-align_center">No recent history found.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
