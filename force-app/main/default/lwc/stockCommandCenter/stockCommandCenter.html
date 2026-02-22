@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Stock Intelligence Dashboard" icon-name="standard:dashboard">
+        <div class="slds-p-around_medium">
+            
+            <div class="slds-grid slds-gutters slds-m-bottom_large">
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="metric-card slds-box slds-box_x-small slds-text-align_center slds-theme_shade">
+                        <p class="slds-text-title_caps">Critical Items</p>
+                        <p class="slds-text-heading_large slds-text-color_error">{lowStockCount}</p>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="metric-card slds-box slds-box_x-small slds-text-align_center slds-theme_shade">
+                        <p class="slds-text-title_caps">Total Warehouses</p>
+                        <p class="slds-text-heading_large">{warehouseCount}</p>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="metric-card slds-box slds-box_x-small slds-text-align_center slds-theme_shade">
+                        <p class="slds-text-title_caps">Active Orders</p>
+                        <p class="slds-text-heading_large slds-text-color_success">{orderCount}</p>
+                    </div>
+                </div>
+            </div>
+
+            <lightning-input 
+                type="search" 
+                label="Search Inventory" 
+                placeholder="Filter by Product or Warehouse..."
+                onchange={handleSearch}
+                class="slds-m-bottom_small">
+            </lightning-input>
+
+            <div style="height: 400px;">
+                <lightning-datatable
+                    key-field="Id"
+                    data={filteredData}
+                    columns={columns}
+                    hide-checkbox-column="true">
+                </lightning-datatable>
+            </div>
+        </div>
+    </lightning-card>
+</template>
