@@ -1,3 +1,4 @@
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=F7DF1E&width=435&lines=Building+the+Future+of+ERP;Powered+by+Salesforce+LWC)
 # 📦 StockFlow | Advanced Inventory Intelligence
 > A High-End Salesforce ERP Solution for Modern Supply Chains.
 
