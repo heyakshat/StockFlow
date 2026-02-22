@@ -33,11 +33,9 @@ public class StockFlowTest {
         Inventory__c inv = [SELECT Id, Current_Stock__c FROM Inventory__c LIMIT 1];
         
         Test.startTest();
-        inv.Current_Stock__c = 30; // Triggers the Low Stock logic
+        inv.Current_Stock__c = 30;
         update inv;
         Test.stopTest();
-
-        // Validate that the trigger generated a Purchase Order
         List<Purchase_Order__c> pos = [SELECT Id FROM Purchase_Order__c];
         System.assert(pos.size() > 0, 'Error: The automation failed to create a Purchase Order.');
     }
