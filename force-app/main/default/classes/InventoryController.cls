@@ -23,5 +23,19 @@ public with sharing class InventoryController {
             WHERE WhatId = :inventoryId 
             ORDER BY CreatedDate DESC 
             LIMIT 5];
-}
+        }
+    @AuraEnabled(cacheable=true)
+    public static List<Inventory__c> getInventoryList() {
+        try {
+            return [
+                SELECT Id, Name, Current_Stock__c, Reorder_Level__c, 
+                       Warehouses__c, Status__c 
+                FROM Inventory__c 
+                WITH SECURITY_ENFORCED 
+                ORDER BY Name ASC
+            ];
+        } catch (Exception e) {
+            throw new AuraHandledException('Error fetching Inventory: ' + e.getMessage());
+        }
+    }
 }
