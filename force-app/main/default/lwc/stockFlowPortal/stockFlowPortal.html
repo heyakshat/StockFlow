@@ -1,3 +1,35 @@
 <template>
-    
+    <div class="slds-box slds-theme_default">
+        <div class="slds-page-header slds-m-bottom_medium">
+            <h1 class="slds-page-header__title">StockFlow Real-Time Dashboard</h1>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-m-bottom_large">
+            <div class="slds-col slds-size_1-of-3 slds-p-horizontal_small">
+                <div class="slds-box slds-theme_shade slds-text-align_center">
+                    <p>Total SKUs</p>
+                    <div class="slds-text-heading_large">{totalItems}</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3 slds-p-horizontal_small">
+                <div class="slds-box slds-theme_error slds-text-align_center">
+                    <p style="color:white">Low Stock Alerts</p>
+                    <div class="slds-text-heading_large" style="color:white">{lowStockCount}</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3 slds-p-horizontal_small">
+                <div class="slds-box slds-theme_success slds-text-align_center">
+                    <p style="color:white">Healthy Stock</p>
+                    <div class="slds-text-heading_large" style="color:white">{healthyStockCount}</div>
+                </div>
+            </div>
+        </div>
+
+        <lightning-datatable
+            key-field="Id"
+            data={inventoryData}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </div>
 </template>
