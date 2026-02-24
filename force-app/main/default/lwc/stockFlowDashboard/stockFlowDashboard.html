@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="StockFlow Management Dashboard" icon-name="custom:custom13">
+        <div class="slds-grid slds-wrap slds-p-around_medium">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                <div class="slds-box slds-theme_shade">
+                    <p class="slds-text-title_caps">Total SKUs</p>
+                    <h1 class="slds-text-heading_large">{totalItems}</h1>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                <div class="slds-box slds-theme_error slds-theme_alert-texture">
+                    <p class="slds-text-title_caps">Critical Alerts</p>
+                    <h1 class="slds-text-heading_large">{lowStockCount}</h1>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                <div class="slds-box slds-theme_shade">
+                    <p class="slds-text-title_caps">Active Warehouses</p>
+                    <h1 class="slds-text-heading_large">{warehouseCount}</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-p-around_medium">
+            <lightning-datatable
+                key-field="id"
+                data={inventoryData}
+                columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
