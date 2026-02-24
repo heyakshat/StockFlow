@@ -21,7 +21,7 @@ StockFlow is a cloud-based **Enterprise Resource Planning (ERP)** tool built on 
 
 ---
 
-## ✨ Key Features (Animated)
+## ✨ Key Features
 * **🔴 Critical Stock Alerts:** Real-time monitoring with dynamic color-coding.
 * **📊 Intelligence Dashboard:** High-end LWC data visualization.
 * **🗺️ Geographic Tracking:** Interactive maps for global warehouse management.
