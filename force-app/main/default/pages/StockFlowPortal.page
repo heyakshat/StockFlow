@@ -9,7 +9,7 @@
             <apex:pageBlock title="Warehouse Management">
                 <apex:pageBlockTable value="{!warehouses}" var="w">
                     <apex:column value="{!w.Name}"/>
-                    <apex:column value="{!w.Location__c}"/>
+                    <apex:column value="{!w.City_of_Operation__c}"/>
                 </apex:pageBlockTable>
             </apex:pageBlock> </apex:form> </div>
 </apex:page>
