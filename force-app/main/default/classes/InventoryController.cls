@@ -1,14 +1,15 @@
 public with sharing class InventoryController {
+    
+    public List<Warehouse__c> warehouses { get; set; }
+
+    public InventoryController() {
+        this.warehouses = [SELECT Name, City_of_Operation__c FROM Warehouse__c LIMIT 100];
+    }
     @AuraEnabled(cacheable=true)
-    public static List<Inventory__c> getAllInventory() 
-    {
+    public static List<Inventory__c> getAllInventory() {
         try {
             return [
-                SELECT Id, 
-                       Name, 
-                       Current_Stock__c, 
-                       Reorder_Level__c, 
-                       Warehouses__r.Name 
+                SELECT Id, Name, Current_Stock__c, Reorder_Level__c, Warehouses__r.Name 
                 FROM Inventory__c 
                 WITH SECURITY_ENFORCED
             ];
@@ -16,26 +17,13 @@ public with sharing class InventoryController {
             throw new AuraHandledException('Error fetching inventory: ' + e.getMessage());
         }
     }
+
     @AuraEnabled(cacheable=true)
     public static List<Task> getStockHistory(Id inventoryId) {
-    return [SELECT Id, Subject, Description, CreatedDate 
-            FROM Task 
-            WHERE WhatId = :inventoryId 
-            ORDER BY CreatedDate DESC 
-            LIMIT 5];
-        }
-    @AuraEnabled(cacheable=true)
-    public static List<Inventory__c> getInventoryList() {
-        try {
-            return [
-                SELECT Id, Name, Current_Stock__c, Reorder_Level__c, 
-                       Warehouses__c, Status__c 
-                FROM Inventory__c 
-                WITH SECURITY_ENFORCED 
-                ORDER BY Name ASC
-            ];
-        } catch (Exception e) {
-            throw new AuraHandledException('Error fetching Inventory: ' + e.getMessage());
-        }
+        return [SELECT Id, Subject, Description, CreatedDate 
+                FROM Task 
+                WHERE WhatId = :inventoryId 
+                ORDER BY CreatedDate DESC 
+                LIMIT 5];
     }
 }

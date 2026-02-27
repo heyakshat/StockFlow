@@ -1,14 +1,15 @@
 <apex:page controller="InventoryController" sidebar="false" showHeader="false" standardStylesheets="true">
-    <apex:slds /> <div class="slds-scope">
+    <apex:slds /> 
+    <div class="slds-scope">
         <div class="slds-page-header">
             <h1 class="slds-page-header__title">StockFlow Inventory Dashboard</h1>
         </div>
+        
         <apex:form>
             <apex:pageBlock title="Warehouse Management">
                 <apex:pageBlockTable value="{!warehouses}" var="w">
                     <apex:column value="{!w.Name}"/>
                     <apex:column value="{!w.Location__c}"/>
                 </apex:pageBlockTable>
-            </apex:form>
-    </div>
+            </apex:pageBlock> </apex:form> </div>
 </apex:page>
